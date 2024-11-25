@@ -1,0 +1,23 @@
+#!/bin/bash
+# Usage: svc service [command]
+# Example: svc app ps aux
+
+# Validate arguments
+if [[ $# -lt 1 ]]; then
+    echo "Usage: svc service [command]"
+    exit 1
+fi
+
+# Service
+case $1 in
+    *)
+        SVC=
+        CMD=
+        ;;
+esac
+
+CMD_ARGS="${@:2}"
+if [[ -z $CMD_ARGS ]]; then
+    CMD_ARGS="$CMD"
+fi
+docker compose exec $SVC $CMD_ARGS

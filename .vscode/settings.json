@@ -1,0 +1,39 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "always",
+        "source.unusedImports": "always"
+    },
+    "editor.detectIndentation": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.formatOnType": true,
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [132],
+    "files.trimTrailingWhitespace": true,
+    "kubernetes-yaml-formatter-x.indentlessArrays": true,
+    "kubernetes-yaml-formatter-x.retainLineBreaksSingle": true,
+    "python.analysis.importFormat": "relative",
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.autoImportCompletions": true,
+    "ruff.organizeImports": true,
+
+    "[json]": {
+        "prettier.tabWidth": 4,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "prettier.tabWidth": 4,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonl]": {
+        "prettier.tabWidth": 4,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "kiliantyler.kubernetes-yaml-formatter-x"
+    }
+}

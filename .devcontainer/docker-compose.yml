@@ -1,0 +1,9 @@
+services:
+  dev:
+    profiles:
+      - devcontainer
+    build: dev
+    volumes:
+      - ../..:/workspaces:cached
+      - ..:/workspaces/python-template:cached
+    command: sleep infinity

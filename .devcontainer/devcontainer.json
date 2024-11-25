@@ -1,0 +1,52 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+    "name": "Python Template",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "dev",
+    "runServices": ["dev"],
+    "workspaceFolder": "/workspaces/python-template",
+    "features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/nikobockerman/devcontainer-features/poetry-persistent-cache:1": {},
+        "ghcr.io/devcontainers-extra/features/poetry:2": {},
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+    "containerEnv": {
+        "DOCKER_CLI_HINTS": "false",
+        "POETRY_VIRTUALENVS_IN_PROJECT": "false",
+        "VIRTUAL_ENV": "/mnt/poetry-persistent-cache/virtualenvs/python-template-p7H3l83p-py3.13",
+        "COMPOSE_PROJECT_NAME": "python-template_devcontainer",
+        "COMPOSE_FILE": "${containerWorkspaceFolder}/.devcontainer/docker-compose.yml"
+    },
+    "remoteEnv": {
+        "PATH": "${containerEnv:VIRTUAL_ENV}/bin:${containerWorkspaceFolder}/.devcontainer/dev/bin:${containerEnv:PATH}"
+    },
+    "mounts": [
+        "type=bind,source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/home/vscode/.gitconfig,readonly",
+        "type=bind,source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,readonly"
+    ],
+    "postCreateCommand": ".devcontainer/scripts/post-create.sh ${containerWorkspaceFolder}",
+    "postStartCommand": ".devcontainer/scripts/post-start.sh ${containerWorkspaceFolder}",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "charliermarsh.ruff",
+                "curlconverter.curlconverter",
+                "esbenp.prettier-vscode",
+                "github.vscode-github-actions",
+                "humao.rest-client",
+                "kiliantyler.kubernetes-yaml-formatter-x",
+                "matangover.mypy",
+                "ms-python.python",
+                "ms-toolsai.jupyter",
+                "redhat.vscode-yaml",
+                "shd101wyy.markdown-preview-enhanced",
+                "tamasfe.even-better-toml"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "${containerEnv:VIRTUAL_ENV}/bin/python"
+            }
+        }
+    }
+}
